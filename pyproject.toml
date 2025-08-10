@@ -20,6 +20,7 @@ dev = [
   "drf-yasg-stubs>=0.1.4",
   "ipython>=9.4.0",
   "mypy<=1.17.1",
+  "ruff>=0.12.8",
 ]
 
 [tool.mypy]
