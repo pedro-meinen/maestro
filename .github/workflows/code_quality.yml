@@ -26,14 +26,7 @@ jobs:
       - name: 📦 Install dependencies
         run: |
           python -m pip install --upgrade pip
-
-          pip install ruff mypy deptry
-
-          pip install \ 
-            celery-types \
-            django-stubs[compatible-mypy] \
-            djangorestframework-stubs[compatible-mypy] \
-            drf-yasg-stubs
+          pip install -r requirements-dev.txt
 
       - name: 🧹 Ruff - Check
         run: ruff check .

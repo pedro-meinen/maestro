@@ -1,0 +1,9 @@
+-r requirements.in
+
+celery-types>=0.23.0
+deptry>=0.23.1
+django-stubs[compatible-mypy]>=5.2.2
+djangorestframework-stubs[compatible-mypy]>=3.16
+drf-yasg-stubs>=0.1.4
+ipython>=9.4.0
+mypy<=1.17.1
