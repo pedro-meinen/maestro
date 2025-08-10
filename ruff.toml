@@ -1,0 +1,54 @@
+indent-width = 4
+line-length = 100
+show-fixes = true
+target-version = "py312"
+
+[lint]
+select = ["ALL"]
+ignore = [
+  "S101",
+  "S311",
+  "S603",
+  "PLC0414",
+  "COM812",
+  "COM819",
+  "TID252",
+  "RUF012",
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "D105",
+  "D106",
+  "D107",
+  "D203",
+  "D212",
+  "D400",
+  "W191",
+  "E111",
+  "E114",
+  "E117",
+  "D206",
+  "D300",
+  "Q000",
+  "Q001",
+  "Q002",
+  "Q003",
+  "ISC002",
+  "CPY",
+]
+
+[lint.isort]
+split-on-trailing-comma = false
+
+[lint.flake8-type-checking]
+strict = true
+
+[lint.pycodestyle]
+max-line-length = 100
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = true
