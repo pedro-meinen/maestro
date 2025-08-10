@@ -7,6 +7,7 @@ dependencies = [
   "django>=5.2.5",
   "django-celery-beat>=2.8.1",
   "djangorestframework>=3.16.1",
+  "drf-yasg>=1.21.10",
   "environs[django]>=14.3.0",
 ]
 
@@ -16,12 +17,18 @@ dev = [
   "deptry>=0.23.1",
   "django-stubs[compatible-mypy]>=5.2.2",
   "djangorestframework-stubs[compatible-mypy]>=3.16",
+  "drf-yasg-stubs>=0.1.4",
   "ipython>=9.4.0",
   "mypy<=1.17.1",
 ]
 
 [tool.mypy]
+python_version = "3.12"
 plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+
+[[tool.mypy.overrides]]
+module = "django_celery_beat.*"
+ignore_missing_imports = true
 
 [tool.django-stubs]
 django_settings_module = "maestro.settings"

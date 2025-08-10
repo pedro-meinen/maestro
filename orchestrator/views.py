@@ -17,7 +17,7 @@ class ScriptViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=["post"])
     def execute(self, _: Request, pk: int | None = None) -> Response:
-        task = run_script.delay(pk)
+        task = run_script.delay(pk or 0)
         return Response({"task_id": task.id})
 
     @action(detail=True, methods=["post"])
