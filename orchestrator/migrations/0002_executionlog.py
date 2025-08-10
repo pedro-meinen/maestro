@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                     models.BigAutoField(
                         auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
                     ),
-                ),  # noqa: E501
+                ),
                 ("executed_at", models.DateTimeField(auto_now_add=True)),
                 ("return_code", models.IntegerField(blank=True, null=True)),
                 ("stdout", models.TextField(blank=True)),
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                         related_name="executions",
                         to="orchestrator.script",
                     ),
-                ),  # noqa: E501
+                ),
             ],
         )
     ]
