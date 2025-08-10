@@ -102,7 +102,7 @@ Tem dúvidas, sugestões ou quer bater um papo sobre o projeto?
 
 - 📧 Email: `pedromeinen99@gmail.com`  
 - 🐙 GitHub: [pedro-meinen](https://github.com/pedro-meinen)  
-- 💼 LinkedIn: [linkedin.com/in/pedro-henrique-souza-meinen](https://linkedin.com/in/pedro-henrique-souza-meinen)
+- 💼 LinkedIn: [linkedin.com/in/pedro-henrique-souza-meinen](https://www.linkedin.com/in/pedro-henrique-souza-meinen-504b3a24b)
 
 ---
 
