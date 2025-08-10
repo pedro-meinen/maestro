@@ -13,14 +13,14 @@ dependencies = [
 [dependency-groups]
 dev = [
   "deptry>=0.23.1",
-  "django-stubs>=5.2.2",
-  "djangorestframework-stubs>=3.16.1",
+  "django-stubs[compatible-mypy]>=5.2.2",
+  "djangorestframework-stubs[compatible-mypy]>=3.16",
   "ipython>=9.4.0",
-  "mypy>=1.17.1",
+  "mypy<=1.17.1",
 ]
 
 [tool.mypy]
-plugins = ["mypy_django_plugin.main"]
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
 
 [tool.django-stubs]
 django_settings_module = "maestro.settings"
