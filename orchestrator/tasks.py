@@ -3,7 +3,7 @@ import subprocess
 from celery import shared_task
 from django.core.mail import mail_admins
 
-from orchestrator.models import Script
+from orchestrator.models import ExecutionLog, Script
 
 
 @shared_task
@@ -19,10 +19,20 @@ def run_script(script_id: int) -> dict[str, object]:
             shell=False,
         )
 
+        log = ExecutionLog.objects.create(
+            script=script,
+            return_code=result.returncode,
+            stdout=result.stdout,
+            stderr=result.stderr,
+            success=(result.returncode == 0),
+        )
+
     except ValueError as e:
+        log = ExecutionLog.objects.create(script=script, stderr=str(e), success=False)
+
         mail_admins(subject=f"Falha critica ao executar script: {script.name}", message=str(e))
 
-        return {"error": str(e)}
+        return {"log_id": log.id, "error": str(e)}
 
     else:
         if result.returncode != 0:
@@ -36,4 +46,9 @@ Codigo de Retorno: {result.returncode}
 """,
             )
 
-        return {"stdout": result.stdout, "strerr": result.stderr, "returncode": result.returncode}
+        return {
+            "log_id": log.id,
+            "stdout": result.stdout,
+            "strerr": result.stderr,
+            "returncode": result.returncode,
+        }
