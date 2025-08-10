@@ -5,22 +5,31 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('orchestrator', '0001_initial'),
-    ]
+    dependencies = [("orchestrator", "0001_initial")]
 
     operations = [
         migrations.CreateModel(
-            name='ExecutionLog',
+            name="ExecutionLog",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa: E501
-                ('executed_at', models.DateTimeField(auto_now_add=True)),
-                ('return_code', models.IntegerField(blank=True, null=True)),
-                ('stdout', models.TextField(blank=True)),
-                ('stderr', models.TextField(blank=True)),
-                ('success', models.BooleanField(default=False)),
-                ('script', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='executions', to='orchestrator.script')),  # noqa: E501
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),  # noqa: E501
+                ("executed_at", models.DateTimeField(auto_now_add=True)),
+                ("return_code", models.IntegerField(blank=True, null=True)),
+                ("stdout", models.TextField(blank=True)),
+                ("stderr", models.TextField(blank=True)),
+                ("success", models.BooleanField(default=False)),
+                (
+                    "script",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="executions",
+                        to="orchestrator.script",
+                    ),
+                ),  # noqa: E501
             ],
-        ),
+        )
     ]
