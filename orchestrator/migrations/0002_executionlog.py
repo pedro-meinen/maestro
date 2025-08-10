@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ExecutionLog',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa: E501
                 ('executed_at', models.DateTimeField(auto_now_add=True)),
                 ('return_code', models.IntegerField(blank=True, null=True)),
                 ('stdout', models.TextField(blank=True)),
                 ('stderr', models.TextField(blank=True)),
                 ('success', models.BooleanField(default=False)),
-                ('script', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='executions', to='orchestrator.script')),
+                ('script', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='executions', to='orchestrator.script')),  # noqa: E501
             ],
         ),
     ]

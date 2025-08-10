@@ -7,7 +7,7 @@ from orchestrator.models import ExecutionLog, Script
 
 
 @shared_task
-def run_script(script_id: int) -> dict[str, object]:
+def run_script(script_id: int) -> dict[str, str | int]:
     script = Script.objects.get(id=script_id)
     try:
         result = subprocess.run(
