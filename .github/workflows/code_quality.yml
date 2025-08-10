@@ -1,0 +1,41 @@
+
+name: 🧹 Code Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-typecheck:
+    name: 🧪 Ruff, Mypy & Deptry
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff mypy deptry
+
+      - name: 🧹 Ruff - Check
+        run: ruff check .
+
+      - name: 🎨 Ruff - Format
+        run: ruff format --check .
+
+      - name: 🔍 Mypy - Type Checking
+        run: mypy .
+
+      - name: 🕵️‍♂️ Deptry - Dependency Analysis
+        run: deptry .
