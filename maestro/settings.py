@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 DEBUG = TEMPLATE_DEGUB = env.bool("DEBUG", default=False)
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = env.str("SECRET_KEY", default="")
 
 ALLOWED_HOSTS: list[str] = []
 

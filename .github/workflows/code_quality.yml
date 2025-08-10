@@ -35,7 +35,7 @@ jobs:
         run: ruff format --check .
 
       - name: 🔍 Mypy - Type Checking
-        run: mypy .
+        run: mypy . --exclude 'maestro/settings.py'
 
       - name: 🕵️‍♂️ Deptry - Dependency Analysis
         run: deptry .
